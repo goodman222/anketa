@@ -5,7 +5,7 @@ import test from "./components/test.vue";
 
 <template>
   <div>
-    Hello World!
+    Hello World! ПРоверкакцацка
     <test></test>
   </div>
 </template>
