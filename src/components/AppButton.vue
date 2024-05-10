@@ -7,7 +7,7 @@ const props = defineProps({
 <template>
   <div>
     <button
-      class="font-bold text-sm p-4 rounded-2xl min-w-36"
+      class="font-bold text-sm p-3 rounded-2xl min-w-36"
       :class="props.color"
     >
       <slot></slot>
