@@ -8,8 +8,14 @@ import Relatives from "./Relatives.vue";
 import { useformDataStore } from "../stores/formDataStore";
 import { useRouter } from "vue-router";
 
+const { currentPage } = defineProps({
+  currentPage: Number,
+});
+
 const formDataStore = useformDataStore();
 const store = formDataStore.form.family;
+
+formDataStore.setCurrentPage(currentPage);
 
 const router = useRouter();
 
@@ -141,7 +147,7 @@ const relativeArrayTemplate = {
         </fieldset>
 
         <div class="flex flex-row self-end mt-5">
-          <AppButton @click="router.push('/')" color="grey" class="mr-5"
+          <AppButton @click="router.push('/page-1')" color="grey" class="mr-5"
             >Назад</AppButton
           >
           <AppButton

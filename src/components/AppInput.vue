@@ -130,7 +130,7 @@ function dropdownChoose(item) {
     <div v-else-if="props.type === 'checkbox'" class="flex flex-row">
       <input
         type="checkbox"
-        class=""
+        class="scale-150 accent-orange"
         :name="props.fieldName"
         :id="props.fieldName"
         v-model="store.value"
@@ -138,6 +138,7 @@ function dropdownChoose(item) {
       <label
         :for="props.fieldName"
         class="block ml-3"
+        :class="{ 'text-red-700': store.isError }"
         v-html="props.title"
       ></label>
     </div>

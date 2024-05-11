@@ -7,8 +7,14 @@ import PageLogo from "./PageLogo.vue";
 import { useformDataStore } from "../stores/formDataStore";
 import { useRouter } from "vue-router";
 
+const { currentPage } = defineProps({
+  currentPage: Number,
+});
+
 const formDataStore = useformDataStore();
 const store = formDataStore.form.moreInfo;
+
+formDataStore.setCurrentPage(currentPage);
 
 const router = useRouter();
 </script>
@@ -124,6 +130,16 @@ const router = useRouter();
               class="mb-5"
             />
           </fieldset>
+          <div class="flex flex-row self-end mt-5">
+            <AppButton @click="router.push('/page-4')" color="grey" class="mr-5"
+              >Назад</AppButton
+            >
+            <AppButton
+              color="orange"
+              @click.prevent="formDataStore.nextPage('moreInfo')"
+              >Отправить анкету</AppButton
+            >
+          </div>
         </form>
       </div>
     </div>

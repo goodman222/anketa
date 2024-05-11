@@ -8,8 +8,13 @@ import Education from "./Education.vue";
 import { useformDataStore } from "../stores/formDataStore";
 import { useRouter } from "vue-router";
 
+const { currentPage } = defineProps({
+  currentPage: Number,
+});
+
 const formDataStore = useformDataStore();
 const store = formDataStore.form.education;
+formDataStore.setCurrentPage(currentPage);
 
 const router = useRouter();
 
@@ -81,7 +86,7 @@ const additionalObjectTemplate = {
           >
         </fieldset>
         <div class="flex flex-row self-end mt-5">
-          <AppButton @click="router.push('/')" color="grey" class="mr-5"
+          <AppButton @click="router.push('/page-2')" color="grey" class="mr-5"
             >Назад</AppButton
           >
           <AppButton

@@ -7,8 +7,14 @@ import PageLogo from "./PageLogo.vue";
 import { useformDataStore } from "../stores/formDataStore";
 import { useRouter } from "vue-router";
 
+const { currentPage } = defineProps({
+  currentPage: Number,
+});
+console.log(currentPage);
+
 const formDataStore = useformDataStore();
 const store = formDataStore.form.start;
+formDataStore.setCurrentPage(currentPage);
 
 const router = useRouter();
 </script>

@@ -122,6 +122,10 @@ export const useformDataStore = defineStore("formDataStore", {
   }),
 
   actions: {
+    setCurrentPage(num) {
+      this.currentPage = num;
+    },
+
     checkAnswers(obj) {
       console.log("start check");
       let isError = false;
@@ -146,6 +150,10 @@ export const useformDataStore = defineStore("formDataStore", {
       this.form[category]["goCheck"]["value"] =
         !this.form[category]["goCheck"]["value"];
       if (!this.checkAnswers(this.form[category])) {
+        if (this.currentPage === 5) {
+          router.push(`/endPage`);
+          return;
+        }
         this.currentPage++;
         // console.log(this.currentPage);
         router.push(`page-${this.currentPage}`);
