@@ -8,6 +8,7 @@ export default {
         backgrundGrey: "#F6F7FB",
         disActive: "#7E7E7E",
         active: "#1E0D1A",
+        orange: "#EE6B03",
       },
     },
 

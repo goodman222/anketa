@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div>
+  <div class="w-fit">
     <button
       class="font-bold text-sm p-3 rounded-2xl min-w-36"
       :class="props.color"

@@ -3,6 +3,8 @@ import { ref } from "vue";
 import AppInput from "./AppInput.vue";
 import AppButton from "./AppButton.vue";
 import { useformDataStore } from "../stores/formDataStore";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const formDataStore = useformDataStore();
 const store = formDataStore.form.start;
@@ -19,26 +21,6 @@ const branches = [
 const date = new Date();
 
 let dateString = date.toISOString().slice(0, 10);
-
-function checkAnswers(obj) {
-  let isError = false;
-  for (const key in obj) {
-    if (key === "goCheck") {
-      continue;
-    }
-    if (!obj[key]["value"]) {
-      isError = true;
-    }
-  }
-  return isError;
-}
-
-function nextPage() {
-  store["goCheck"]["value"] = !store["goCheck"]["value"];
-  if (!checkAnswers(store)) {
-    console.log("gonext!");
-  }
-}
 </script>
 
 <template>
@@ -86,7 +68,12 @@ function nextPage() {
         v-model="store.branch.value"
       ></AppInput>
 
-      <AppButton @click.prevent="nextPage" color="orange"> Далее </AppButton>
+      <AppButton
+        @click.prevent="formDataStore.nextPage('start')"
+        color="orange"
+      >
+        Далее
+      </AppButton>
     </form>
   </div>
 </template>

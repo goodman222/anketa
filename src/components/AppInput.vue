@@ -11,29 +11,43 @@ const props = defineProps({
   dropdownAnswers: Array,
   category: String,
   fieldName: String,
+  inArray: {
+    type: Boolean,
+    default: false,
+  },
+  arrayName: String,
+  index: Number,
   headColor: {
     type: String,
     default: "black",
   },
 });
 
-let store = reactive(formDataStore["form"][props.category][props.fieldName]);
+let store;
 
-let formValue = defineModel();
+if (props.inArray) {
+  store = reactive(
+    formDataStore["form"][props.category][props.arrayName][props.index][
+      props.fieldName
+    ]
+  );
+} else {
+  store = reactive(formDataStore["form"][props.category][props.fieldName]);
+}
 
 //Ставим ошибку
 watch(
   () => formDataStore["form"][props.category]["goCheck"]["value"],
   () => {
-    if (!formValue.value) {
+    if (!store.value) {
       store.isError = true;
     }
   }
 );
 
 //Убираем ошибку
-watch(formValue, () => {
-  if (formValue.value) {
+watch(store, () => {
+  if (store.value) {
     store.isError = false;
   }
 });
@@ -52,14 +66,14 @@ const modelForDate = ref("");
 
 if (props.type === "date") {
   modelForDate.value = props.placeholder;
-  formValue.value = modelForDate.value;
+  store.value = modelForDate.value;
 }
 
 function dropdownChoose(item) {
   dropdownCurrentAnswer.value = item;
   dropdownValue.value = item;
   isdropDownOpen.value = !isdropDownOpen.value;
-  formValue.value = dropdownValue.value;
+  store.value = dropdownValue.value;
 }
 </script>
 
@@ -106,7 +120,7 @@ function dropdownChoose(item) {
       type="date"
       class="bg-backgrundGrey text-active border-2 placeholder-disActive text-sm p-3 rounded-2xl outline-none w-full"
       :class="{ 'border-red-700': store.isError }"
-      v-model="modelForDate"
+      v-model="store.value"
       @input="(event) => (formValue = event.target.value)"
     />
 
@@ -116,7 +130,7 @@ function dropdownChoose(item) {
       :placeholder="placeholder"
       class="border-2 bg-backgrundGrey text-active placeholder-disActive text-sm p-3 rounded-2xl outline-none w-full"
       :class="{ 'border-red-700': store.isError }"
-      v-model="formValue"
+      v-model="store.value"
     />
   </div>
 </template>
