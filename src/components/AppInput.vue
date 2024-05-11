@@ -79,7 +79,11 @@ function dropdownChoose(item) {
 
 <template>
   <div class="w-full">
-    <h2 class="font-semibold mb-2" :style="{ color: props.headColor }">
+    <h2
+      v-if="props.type !== 'checkbox'"
+      class="font-semibold mb-2"
+      :style="{ color: props.headColor }"
+    >
       {{ props.title }}
     </h2>
 
@@ -123,6 +127,20 @@ function dropdownChoose(item) {
       v-model="store.value"
       @input="(event) => (formValue = event.target.value)"
     />
+    <div v-else-if="props.type === 'checkbox'" class="flex flex-row">
+      <input
+        type="checkbox"
+        class=""
+        :name="props.fieldName"
+        :id="props.fieldName"
+        v-model="store.value"
+      />
+      <label
+        :for="props.fieldName"
+        class="block ml-3"
+        v-html="props.title"
+      ></label>
+    </div>
 
     <input
       v-else

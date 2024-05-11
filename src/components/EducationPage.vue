@@ -36,7 +36,7 @@ const additionalObjectTemplate = {
     <Sidebar />
     <div class="pt-24 px-20 w-7/12">
       <PageLogo fileName="home.png" class="mb-12" />
-      <h1 сlass="font-bold text-xl uppercase mb-8">Образование</h1>
+      <h1 class="font-bold text-xl uppercase mb-8">Образование</h1>
       <form action="" class="mb-10 flex flex-col">
         <fieldset>
           <legend class="font-bold text-xl uppercase mb-8">
@@ -80,6 +80,16 @@ const additionalObjectTemplate = {
             >Добавить</AppButton
           >
         </fieldset>
+        <div class="flex flex-row self-end mt-5">
+          <AppButton @click="router.push('/')" color="grey" class="mr-5"
+            >Назад</AppButton
+          >
+          <AppButton
+            color="orange"
+            @click.prevent="formDataStore.nextPage('education')"
+            >Далее</AppButton
+          >
+        </div>
       </form>
     </div>
   </div>

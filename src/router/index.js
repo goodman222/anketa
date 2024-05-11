@@ -4,6 +4,8 @@ import HomePageContainer from "@/components/HomePageContainer.vue";
 import PersonalPage from "@/components/PersonalPage.vue";
 import FamilyPage from "@/components/FamilyPage.vue";
 import EducationPage from "@/components/EducationPage.vue";
+import ExpPage from "@/components/ExpPage.vue";
+import MoreInfoPage from "@/components/MoreInfoPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +26,14 @@ const router = createRouter({
     {
       path: "/page-3",
       component: EducationPage,
+    },
+    {
+      path: "/page-4",
+      component: ExpPage,
+    },
+    {
+      path: "/page-5",
+      component: MoreInfoPage,
     },
   ],
 });

@@ -78,6 +78,38 @@ export const useformDataStore = defineStore("formDataStore", {
         ],
         goCheck: { value: false },
       },
+
+      exp: {
+        work: [
+          {
+            dateStart: { value: "", isError: false },
+            dateEnd: { value: "", isError: false },
+            organizationName: { value: "", isError: false },
+            place: { value: "", isError: false },
+            jobTitle: { value: "", isError: false },
+            id: 1,
+          },
+        ],
+        goCheck: { value: false },
+      },
+
+      moreInfo: {
+        business: { value: "", isError: false },
+        hobby: { value: "", isError: false },
+        relatives: { value: "", isError: false },
+
+        otherCity: { value: "", isError: false },
+        dismissal: { value: "", isError: false },
+        salaryNow: { value: "", isError: false },
+        salaryWants: { value: "", isError: false },
+        workStart: { value: "", isError: false },
+
+        trueInfo: { value: "", isError: false },
+        changeInfo: { value: "", isError: false },
+        rules: { value: "", isError: false },
+        voluntarily: { value: "", isError: false },
+        goCheck: { value: false },
+      },
     },
     currentPage: 0,
     listOfPages: [
