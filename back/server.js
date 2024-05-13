@@ -1,9 +1,9 @@
-import express from "express";
+import express, { json } from "express";
 import ViteExpress from "vite-express";
 import bodyParser from "body-parser";
 import fs from "fs";
 import * as docx from "docx";
-
+import TelegramApi from "node-telegram-bot-api";
 import {
   Paragraph,
   patchDocument,
@@ -15,14 +15,57 @@ import {
   WidthType,
   BorderStyle,
 } from "docx";
-import { log } from "console";
+import { error, log } from "console";
+
+const token = "6916424872:AAGsXfL8qqVQ62ynk1KPysO9--HOyGplzCI";
 
 const app = express();
 
 app.use(express.json());
 
-async function patchFile(data) {
-  patchDocument(fs.readFileSync("./back/template.docx"), {
+//Чтение с файла
+
+let bd;
+
+async function readBase() {
+  fs.readFile("./back/base.json", (err, data) => {
+    bd = JSON.parse(data);
+    console.log(`Base: ${bd}`);
+  });
+}
+
+readBase();
+
+// Бот-----
+const bot = new TelegramApi(token, { polling: true });
+
+bot.on("message", async (msg) => {
+  const text = msg.text;
+  const chatId = msg.chat.id;
+  if (bd.includes(chatId)) {
+    bot.sendMessage(chatId, "Вы уже получаете анкеты!");
+    return;
+  }
+  if (text === "/start") {
+    bot.sendMessage(
+      chatId,
+      "Добро пожаловать. Этот бот рассылает анкеты сосикателей компании ССК. Введите пароль для доступа к боту"
+    );
+
+    return;
+  }
+  if (text === "pass1234") {
+    bd.push(chatId);
+    const saveBd = JSON.stringify(bd);
+    fs.writeFile("./back/base.json", saveBd, (data) => {});
+    bot.sendMessage(chatId, "Пароль верный!");
+  }
+});
+
+//Создание файла----
+
+async function patchFile(data, fileName) {
+  await patchDocument(fs.readFileSync("./back/template.docx"), {
     patches: {
       start_dateComlition: {
         type: PatchType.PARAGRAPH,
@@ -205,7 +248,7 @@ async function patchFile(data) {
       },
     },
   }).then((doc) => {
-    fs.writeFileSync("./back/anketa.docx", doc);
+    fs.writeFileSync(fileName, doc);
   });
 }
 
@@ -256,95 +299,30 @@ function getRow(arr, widthArray) {
   });
 }
 
-//   children: [
-//     new TableCell({
-//       children: [new Paragraph({ text: 123 })],
-//       width: { size: 13, type: WidthType.PERCENTAGE },
-//       borders: {
-//         left: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//         right: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//       },
-//     }),
-//     new TableCell({
-//       children: [new Paragraph({ text: 345 })],
-//       width: { size: 11.1, type: WidthType.PERCENTAGE },
-//       borders: {
-//         left: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//         right: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//       },
-//     }),
-//     new TableCell({
-//       children: [new Paragraph({ text: "bottom to top" })],
-//       width: { size: 34.1, type: WidthType.PERCENTAGE },
+async function sendFile(req, res) {
+  const data = req.body;
+  const fileName = `./back/${data.personal.name.value}_${data.personal.lastName.value}.docx`;
 
-//       borders: {
-//         left: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//         right: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//       },
-//     }),
-//     new TableCell({
-//       children: [new Paragraph({ text: "top to bottom" })],
-//       width: { size: 18, type: WidthType.PERCENTAGE },
+  await patchFile(data, fileName);
 
-//       borders: {
-//         left: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//         right: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//       },
-//     }),
-//     new TableCell({
-//       children: [new Paragraph({ text: "top to bottom" })],
-//       width: { size: 23.5, type: WidthType.PERCENTAGE },
+  await new Promise(async (resolve, reject) => {
+    await bd.forEach(async (chatId) => {
+      await bot.sendDocument(chatId, fileName).catch((error) => reject());
+      await bot
+        .sendMessage(
+          chatId,
+          `${data.personal.name.value} ${data.personal.surname.value} ${data.personal.lastName.value} отправил анкету!`
+        )
+        .catch((error) => reject());
+    });
+    resolve();
+  });
 
-//       borders: {
-//         left: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//         right: {
-//           style: BorderStyle.SINGLE,
-//           color: "000000",
-//           size: 14,
-//         },
-//       },
-//     }),
-//   ],
-// });
+  fs.unlink(fileName, (err) => {
+    if (err) throw err; // не удалось удалить файл
+  });
+}
 
-app.post("/saveFile", async (req, res) => {
-  patchFile(req.body);
-});
+app.post("/saveFile", (req, res) => sendFile(req, res));
 
 ViteExpress.listen(app, 5173, () => console.log("Server is listening..."));

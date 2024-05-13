@@ -21,7 +21,7 @@ function deleteItem() {
 <template>
   <div>
     <h2>Укажите Ваш опыт</h2>
-    <div class="flex flex-row mb-5">
+    <div class="flex flex-row mb-5 md:flex-col">
       <AppInput
         type="date"
         title="Дата поступления"
@@ -53,7 +53,7 @@ function deleteItem() {
       :inArray="true"
       class="mb-5"
     />
-    <div class="flex flex-row mb-5">
+    <div class="flex flex-row mb-5 md:flex-col">
       <AppInput
         type="text"
         title="Местонахождение"

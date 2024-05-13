@@ -8,7 +8,7 @@ const src = `src/img/${props.fileName}`;
 
 <template>
   <div
-    class="w-16 h-16 rounded-full bg-[#FBE1CB] flex justify-center items-center"
+    class="w-16 h-16 rounded-full bg-[#FBE1CB] flex justify-center items-center lg:hidden"
   >
     <img :src="src" alt="" />
   </div>

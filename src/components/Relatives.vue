@@ -19,7 +19,7 @@ function deleteItem() {
 </script>
 <template>
   <div>
-    <div class="flex flex-row mb-5">
+    <div class="flex flex-row mb-5 md:flex-col">
       <AppInput
         type="text"
         placeholder="Мать"
@@ -42,7 +42,7 @@ function deleteItem() {
         :inArray="true"
       />
     </div>
-    <div class="w-1/2 mb-5">
+    <div class="w-1/2 mb-5 md:w-full">
       <AppInput
         type="date"
         title="Дата рождения"

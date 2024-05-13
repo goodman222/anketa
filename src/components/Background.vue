@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="w-screen h-screen background px-24 py-20 flex flex-col justify-center"
+    class="w-screen h-screen background px-24 py-20 flex flex-col justify-center lg:px-10"
   >
     <a class="absolute top-24 z-40" href="https://www.sibserv.com/">
       <img src="../img/logo.png" />

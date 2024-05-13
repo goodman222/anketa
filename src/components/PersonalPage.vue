@@ -20,16 +20,16 @@ const router = useRouter();
 </script>
 
 <template>
-  <div class="flex flex-row">
+  <div class="flex flex-row lg:flex-col">
     <Sidebar />
-    <div class="pt-24 px-20 w-7/12">
+    <div class="pt-24 px-20 w-7/12 lg:w-full lg:pt-10 md:px-10 l:px-5">
       <PageLogo fileName="personal.png" class="mb-12" />
       <form action="" class="mb-10 flex flex-col">
         <fieldset>
           <legend class="font-bold text-xl uppercase mb-8">
             Личная информация
           </legend>
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="text"
               placeholder="Иванов"
@@ -46,7 +46,7 @@ const router = useRouter();
               fieldName="name"
             />
           </div>
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="text"
               placeholder="Иванович"
@@ -71,7 +71,7 @@ const router = useRouter();
             class="mr-4 mb-5"
           />
 
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="email"
               placeholder="ivan@mail.ru"
@@ -103,7 +103,7 @@ const router = useRouter();
             Паспортные данные
           </legend>
 
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="number"
               placeholder="2699"
@@ -121,7 +121,7 @@ const router = useRouter();
             />
           </div>
 
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="date"
               title="Дата выдачи"
@@ -138,7 +138,7 @@ const router = useRouter();
             />
           </div>
 
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="number"
               placeholder="272825267112"

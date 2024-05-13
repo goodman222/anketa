@@ -30,7 +30,7 @@ let dateString = date.toISOString().slice(0, 10);
     </h1>
     <p class="text-white">на потенциальное трудоустройство в АО «ССК»</p>
 
-    <form class="flex flex-row justify-between items-end">
+    <form class="flex flex-row md:flex-col justify-between items-end">
       <AppInput
         headColor="white"
         type="date"
@@ -39,7 +39,7 @@ let dateString = date.toISOString().slice(0, 10);
         category="start"
         fieldName="dateComlition"
         title="Дата заполнения"
-        class="mr-4"
+        class="mr-4 md:mr-0"
         v-model="store.dateComlition.value"
       ></AppInput>
 
@@ -51,7 +51,7 @@ let dateString = date.toISOString().slice(0, 10);
         category="start"
         fieldName="vacancy"
         title="Вакансия"
-        class="mr-4"
+        class="mr-4 md:mr-0"
         v-model="store.vacancy.value"
       ></AppInput>
 
@@ -64,13 +64,14 @@ let dateString = date.toISOString().slice(0, 10);
         fieldName="branch"
         :isError="store.branch.isError"
         :dropdownAnswers="branches"
-        class="mr-4"
+        class="mr-4 md:mr-0"
         v-model="store.branch.value"
       ></AppInput>
 
       <AppButton
         @click.prevent="formDataStore.nextPage('start')"
         color="orange"
+        class="md:mt-4"
       >
         Далее
       </AppButton>

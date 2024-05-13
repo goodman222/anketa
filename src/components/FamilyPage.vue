@@ -28,16 +28,16 @@ const relativeArrayTemplate = {
 };
 </script>
 <template>
-  <div class="flex flex-row">
+  <div class="flex flex-row lg:flex-col">
     <Sidebar />
-    <div class="pt-24 px-20 w-7/12">
+    <div class="pt-24 px-20 w-7/12 lg:w-full lg:pt-10 md:px-10 l:px-5">
       <PageLogo fileName="home.png" class="mb-12" />
       <form action="" class="mb-10 flex flex-col">
         <fieldset>
           <legend class="font-bold text-xl uppercase mb-8">
             Проживание и семья
           </legend>
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="text"
               placeholder="Женат"
@@ -55,7 +55,7 @@ const relativeArrayTemplate = {
             />
           </div>
 
-          <div class="flex flex-row mb-5">
+          <div class="flex flex-row mb-5 md:flex-col">
             <AppInput
               type="text"
               placeholder="г. Москва, улица Ленина"
@@ -103,7 +103,7 @@ const relativeArrayTemplate = {
 
           <div
             v-show="formDataStore.form.family.driveLicense.value === 'Да'"
-            class="flex flex-row mb-5"
+            class="flex flex-row mb-5 md:flex-col"
           >
             <AppInput
               type="text"

@@ -21,9 +21,9 @@ const router = useRouter();
 
 <template>
   <div>
-    <div class="flex flex-row">
+    <div class="flex flex-row lg:flex-col">
       <Sidebar />
-      <div class="pt-24 px-20 w-7/12">
+      <div class="pt-24 px-20 w-7/12 lg:w-full lg:pt-10 md:px-10 l:px-5">
         <PageLogo fileName="dop.png" class="mb-12" />
         <form action="" class="mb-10 flex flex-col">
           <fieldset>
@@ -54,14 +54,14 @@ const router = useRouter();
               fieldName="relatives"
               class="mb-5"
             />
-            <div class="flex flex-row items-end mb-5">
+            <div class="flex flex-row items-end mb-5 md:flex-col">
               <AppInput
                 type="text"
                 placeholder="Да"
                 title="Готовы ли Вы работать в других городах?"
                 category="moreInfo"
                 fieldName="otherCity"
-                class="mr-4"
+                class="mr-4 md:mr-0"
               />
               <AppInput
                 type="text"
@@ -71,14 +71,14 @@ const router = useRouter();
                 fieldName="dismissal"
               />
             </div>
-            <div class="flex flex-row items-end mb-5">
+            <div class="flex flex-row items-end mb-5 md:flex-col">
               <AppInput
                 type="text"
                 placeholder="100 тыс."
                 title="Ваша зарплата на сегодняшний день (до вычета подоходного налога)?"
                 category="moreInfo"
                 fieldName="salaryNow"
-                class="mr-4"
+                class="mr-4 md:mr-0"
               />
               <AppInput
                 type="text"
@@ -130,11 +130,12 @@ const router = useRouter();
               class="mb-5"
             />
           </fieldset>
-          <div class="flex flex-row self-end mt-5">
+          <div class="flex flex-row self-end mt-5 md:flex-col">
             <AppButton @click="router.push('/page-4')" color="grey" class="mr-5"
               >Назад</AppButton
             >
             <AppButton
+              class="md:mt-4"
               color="orange"
               @click.prevent="formDataStore.nextPage('moreInfo')"
               >Отправить анкету</AppButton

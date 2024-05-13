@@ -23,7 +23,7 @@ function deleteItem() {
 <template>
   <div>
     <div v-if="educationType === 'basic'">
-      <div class="flex flex-row mb-5">
+      <div class="flex flex-row mb-5 md:flex-col">
         <AppInput
           type="date"
           title="Дата поступления"
@@ -55,7 +55,7 @@ function deleteItem() {
         :inArray="true"
         class="mb-5"
       />
-      <div class="flex flex-row mb-5">
+      <div class="flex flex-row mb-5 md:flex-col">
         <AppInput
           type="text"
           title="Факультет"
@@ -80,7 +80,7 @@ function deleteItem() {
       </div>
     </div>
     <div v-else-if="educationType === 'additional'">
-      <div class="flex flex-row mb-5">
+      <div class="flex flex-row mb-5 md:flex-col">
         <AppInput
           type="date"
           title="Дата поступления"

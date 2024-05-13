@@ -37,9 +37,9 @@ const additionalObjectTemplate = {
 </script>
 
 <template>
-  <div class="flex flex-row">
+  <div class="flex flex-row lg:flex-col">
     <Sidebar />
-    <div class="pt-24 px-20 w-7/12">
+    <div class="pt-24 px-20 w-7/12 lg:w-full lg:pt-10 md:px-10 l:px-5">
       <PageLogo fileName="home.png" class="mb-12" />
       <h1 class="font-bold text-xl uppercase mb-8">Образование</h1>
       <form action="" class="mb-10 flex flex-col">
