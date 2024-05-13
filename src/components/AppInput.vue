@@ -97,7 +97,7 @@ function dropdownChoose(item) {
         <p class="max-h-5 overflow-hidden">{{ dropdownCurrentAnswer }}</p>
         <div>
           <img
-            src="../img/vector.png"
+            src="../img/Vector.png"
             :style="{ transform: isdropDownOpen ? 'rotate(180deg)' : 'none' }"
           />
         </div>
