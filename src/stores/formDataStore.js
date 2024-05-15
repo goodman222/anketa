@@ -55,13 +55,7 @@ export const useformDataStore = defineStore("formDataStore", {
             workPlace: { value: "", isError: false },
             id: 1,
           },
-          {
-            degree: { value: "", isError: false },
-            fullName: { value: "", isError: false },
-            birthday: { value: "", isError: false },
-            workPlace: { value: "", isError: false },
-            id: 2,
-          },
+
         ],
         goCheck: { value: false },
       },

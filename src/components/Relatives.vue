@@ -11,7 +11,6 @@ const { index } = defineProps({
   index: Number,
 });
 
-// const { index } = toRefs(props);
 
 function deleteItem() {
   store.splice(index, 1);
@@ -29,7 +28,7 @@ function deleteItem() {
         :index="index"
         fieldName="degree"
         :inArray="true"
-        class="mr-4"
+        class="mr-4 md:mb-5"
       />
       <AppInput
         type="text"

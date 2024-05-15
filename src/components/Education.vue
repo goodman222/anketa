@@ -32,7 +32,7 @@ function deleteItem() {
           :index="index"
           fieldName="dateStart"
           :inArray="true"
-          class="mr-4"
+          class="mr-4 md:mb-5"
         />
         <AppInput
           type="date"
@@ -65,7 +65,7 @@ function deleteItem() {
           :index="index"
           fieldName="faculty"
           :inArray="true"
-          class="mr-4"
+          class="mr-4 md:mb-5"
         />
         <AppInput
           type="text"
@@ -89,7 +89,7 @@ function deleteItem() {
           :index="index"
           fieldName="dateStart"
           :inArray="true"
-          class="mr-4"
+          class="mr-4 md:mb-5"
         />
         <AppInput
           type="date"

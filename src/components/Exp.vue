@@ -20,7 +20,6 @@ function deleteItem() {
 </script>
 <template>
   <div>
-    <h2>Укажите Ваш опыт</h2>
     <div class="flex flex-row mb-5 md:flex-col">
       <AppInput
         type="date"
@@ -30,7 +29,7 @@ function deleteItem() {
         :index="index"
         fieldName="dateStart"
         :inArray="true"
-        class="mr-4"
+        class="mr-4 md:mb-5"
       />
       <AppInput
         type="date"
@@ -63,7 +62,7 @@ function deleteItem() {
         :index="index"
         fieldName="place"
         :inArray="true"
-        class="mr-4"
+        class="mr-4 md:mb-5" 
       />
       <AppInput
         type="text"

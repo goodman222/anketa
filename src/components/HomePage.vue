@@ -30,7 +30,7 @@ let dateString = date.toISOString().slice(0, 10);
     </h1>
     <p class="text-white">на потенциальное трудоустройство в АО «ССК»</p>
 
-    <form class="flex flex-row md:flex-col justify-between items-end">
+    <form class="flex flex-row md:flex-col  mt-12 justify-between items-end">
       <AppInput
         headColor="white"
         type="date"

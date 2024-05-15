@@ -43,7 +43,7 @@ const additionalObjectTemplate = {
       <PageLogo fileName="home.png" class="mb-12" />
       <h1 class="font-bold text-xl uppercase mb-8">Образование</h1>
       <form action="" class="mb-10 flex flex-col">
-        <fieldset>
+        <fieldset class="mb-8">
           <legend class="font-bold text-xl uppercase mb-8">
             Среднее, средне-специальное, высшее образование
           </legend>
@@ -52,6 +52,7 @@ const additionalObjectTemplate = {
             v-for="(item, index) in store.basic"
             :key="item.id"
             :index="index"
+            
           ></Education>
           <AppButton
             @click.stop.prevent="
@@ -63,7 +64,7 @@ const additionalObjectTemplate = {
           >
         </fieldset>
         <fieldset>
-          <legend class="font-bold text-xl uppercase mb-8">
+          <legend class="font-bold text-xl uppercase mb-8 ">
             Дополнительное образование (курсы, переподготовки)
           </legend>
           <Education

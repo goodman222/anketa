@@ -25,7 +25,7 @@ const router = useRouter();
     <div class="pt-24 px-20 w-7/12 lg:w-full lg:pt-10 md:px-10 l:px-5">
       <PageLogo fileName="personal.png" class="mb-12" />
       <form action="" class="mb-10 flex flex-col">
-        <fieldset>
+        <fieldset class="mb-5">
           <legend class="font-bold text-xl uppercase mb-8">
             Личная информация
           </legend>
@@ -36,7 +36,7 @@ const router = useRouter();
               title="Фамилия"
               category="personal"
               fieldName="lastName"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="text"
@@ -53,13 +53,14 @@ const router = useRouter();
               title="Отчество"
               category="personal"
               fieldName="surname"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="date"
               title="Дата рождения"
               category="personal"
               fieldName="birthday"
+              class=""
             />
           </div>
           <AppInput
@@ -78,7 +79,7 @@ const router = useRouter();
               title="Электронная почта (E-Mail)"
               category="personal"
               fieldName="email"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="text"
@@ -110,7 +111,7 @@ const router = useRouter();
               title="Серия"
               category="personal"
               fieldName="passSeries"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="number"
@@ -127,7 +128,7 @@ const router = useRouter();
               title="Дата выдачи"
               category="personal"
               fieldName="passDate"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="text"
@@ -145,7 +146,7 @@ const router = useRouter();
               title="ИНН"
               category="personal"
               fieldName="INN"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="number"

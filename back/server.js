@@ -302,7 +302,7 @@ function getRow(arr, widthArray) {
 async function sendFile(req, res) {
   const data = req.body;
   const fileName = `./back/${data.personal.name.value}_${data.personal.lastName.value}.docx`;
-
+  
   await patchFile(data, fileName);
 
   await new Promise(async (resolve, reject) => {

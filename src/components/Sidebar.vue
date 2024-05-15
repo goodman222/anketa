@@ -2,6 +2,7 @@
 import { ref, reactive, computed } from "vue";
 import { storeToRefs } from "pinia";
 import SidebarItem from "./SidebarItem.vue";
+import ProgressBar from "./ProgressBar.vue"
 import { useformDataStore } from "../stores/formDataStore";
 
 const formDataStore = useformDataStore();
@@ -11,22 +12,25 @@ const currentPageNumber = computed(() => formDataStore.currentPage);
 const currentPageName = computed(
   () => formDataStore.listOfPages[currentPageNumber.value - 1]
 );
+const progress = computed(()=>currentPageNumber.value/5*100);
 </script>
 
 <template>
-  <div class="bg-[#F6F7FB] pl-24 pt-24 min-h-full w-1/3 lg:w-full">
+  <div class="bg-[#F6F7FB] pl-24 pt-24 min-h-full w-1/3 lg:w-full lg:py-20 lg:px-10 md:pl-10 l:pl-5">
     <a class="" href="https://www.sibserv.com/">
       <img src="../img/logo.png" />
     </a>
 
     <h2 class="uppercase font-bold text-2xl lg:mt-10">
-      ШАГ {{ currentPageNumber }}
+      ШАГ {{ currentPageNumber }} <span class="minLg:hidden"> / 5</span>
     </h2>
 
-    <p class="uppercase lg:mb-4">
+    <p class="uppercase lg:mb-4 lg:mt-4">
       {{ currentPageName }}
     </p>
 
+    <!-- <progress :value="currentPageNumber/5*100" max="100"  class="w-full h-2 rounded-xl border minLg:hidden" ></progress> -->
+    <ProgressBar :progress="progress" class="mt-8"></ProgressBar>
     <div class="lg:hidden">
       <SidebarItem
         v-for="(item, index) in formDataStore.listOfPages"
@@ -36,3 +40,9 @@ const currentPageName = computed(
     </div>
   </div>
 </template>
+
+<style scoped>
+progress::-moz-progress-bar { background: #EE6B03; }
+progress::-webkit-progress-value { background: #EE6B03; }
+progress { color: #EE6B03; }
+</style>

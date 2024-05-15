@@ -61,7 +61,7 @@ const router = useRouter();
                 title="Готовы ли Вы работать в других городах?"
                 category="moreInfo"
                 fieldName="otherCity"
-                class="mr-4 md:mr-0"
+                class="mr-4 md:mr-0 md:mb-5"  
               />
               <AppInput
                 type="text"
@@ -78,7 +78,7 @@ const router = useRouter();
                 title="Ваша зарплата на сегодняшний день (до вычета подоходного налога)?"
                 category="moreInfo"
                 fieldName="salaryNow"
-                class="mr-4 md:mr-0"
+                class="mr-4 md:mr-0 md:mb-5"
               />
               <AppInput
                 type="text"
@@ -97,8 +97,8 @@ const router = useRouter();
               class="mb-5"
             />
           </fieldset>
-          <fieldset>
-            <legend class="font-bold text-xl uppercase mb-8">
+          <fieldset class="mt-5">
+            <legend class="font-bold text-xl uppercase mb-8 ">
               Направляя анкету:
             </legend>
             <AppInput

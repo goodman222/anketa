@@ -8,10 +8,10 @@ import AppButton from "./AppButton.vue";
   <div
     class="w-screen h-screen relative flex flex-col lg:px-10 lg:py-40 py-48 px-24"
   >
-    <h1 class="uppercase text-4xl text-white font-bold mt-16">
+    <h1 class="uppercase text-4xl text-white l:text-3xl font-bold mt-16">
       Спасибо за заявку!
     </h1>
-    <p class="text-white text-xl font-medium mt-2">
+    <p class="text-white text-xl l:text-lg font-medium mt-2">
       Мы обязательно свяжемся с Вами
     </p>
     <div class="flex flex-row mt-12 l:flex-col">

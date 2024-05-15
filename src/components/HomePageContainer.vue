@@ -16,7 +16,7 @@ formDataStore.setCurrentPage(currentPage);
   <div>
     <Backround class="absolute"></Backround>
     <div
-      class="w-screen h-screen relative flex flex-col lg:px-10 lg:py-40 py-48 px-24"
+      class="w-screen h-screen relative flex flex-col justify-center lg:px-10 lg:py-40  px-24"
     >
       <HomePage />
     </div>

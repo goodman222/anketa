@@ -44,7 +44,7 @@ const relativeArrayTemplate = {
               title="Семейное положение"
               category="family"
               fieldName="familyStatus"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="text"
@@ -62,7 +62,7 @@ const relativeArrayTemplate = {
               title="Адрес регистрации"
               category="family"
               fieldName="registrationAddress"
-              class="mr-4"
+              class="mr-4 md:mb-5"
             />
             <AppInput
               type="text"
@@ -79,7 +79,7 @@ const relativeArrayTemplate = {
             title="Пребывание за границей (страна, срок, цель)"
             category="family"
             fieldName="abroad"
-            class="mb-5"
+            class="mb-5 "
           />
 
           <AppInput
@@ -123,7 +123,7 @@ const relativeArrayTemplate = {
               class="mb-5"
             />
           </div>
-          <h2 class="font-bold text-xl uppercase mb-8">
+          <h2 class="font-bold text-xl uppercase mb-8 mt-8">
             Ваши ближайшие родственники (муж/жена, мать, отец, родные братья и
             сестры)
           </h2>
