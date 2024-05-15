@@ -6,7 +6,10 @@ export const useformDataStore = defineStore("formDataStore", {
   state: () => ({
     form: {
       start: {
-        dateComlition: { value: "", isError: false },
+        dateComlition: {
+          value: new Date().toISOString().slice(0, 10),
+          isError: false,
+        },
         vacancy: {
           value: "",
           isError: false,
@@ -55,7 +58,6 @@ export const useformDataStore = defineStore("formDataStore", {
             workPlace: { value: "", isError: false },
             id: 1,
           },
-
         ],
         goCheck: { value: false },
       },

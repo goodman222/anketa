@@ -64,10 +64,10 @@ const dropdownValue = ref("");
 
 const modelForDate = ref("");
 
-if (props.type === "date") {
-  modelForDate.value = props.placeholder;
-  store.value = modelForDate.value;
-}
+// if (props.type === "date") {
+//   modelForDate.value = props.placeholder;
+//   store.value = modelForDate.value;
+// }
 
 function dropdownChoose(item) {
   dropdownCurrentAnswer.value = item;
@@ -125,8 +125,9 @@ function dropdownChoose(item) {
       class="bg-backgrundGrey text-active border-2 placeholder-disActive text-sm p-3 rounded-2xl outline-none w-full"
       :class="{ 'border-red-700': store.isError }"
       v-model="store.value"
-      @input="(event) => (formValue = event.target.value)"
     />
+    <!-- @input="(event) => (formValue = event.target.value)" -->
+
     <div v-else-if="props.type === 'checkbox'" class="flex flex-row">
       <input
         type="checkbox"
