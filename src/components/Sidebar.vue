@@ -19,7 +19,7 @@ const progress = computed(() => (currentPageNumber.value / 5) * 100);
   <div
     class="bg-[#F6F7FB] pl-24 pt-24 min-h-full w-1/3 lg:w-full lg:py-20 lg:px-10 md:pl-10 l:pl-5"
   >
-    <a class="" href="https://www.sibserv.com/">
+    <a class="block w-24 h-11" href="https://www.sibserv.com/">
       <img src="../img/logo.png" />
     </a>
 
