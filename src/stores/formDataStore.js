@@ -131,6 +131,10 @@ export const useformDataStore = defineStore("formDataStore", {
       this.currentPage = num;
     },
 
+    scrollUp() {
+      window.scrollTo(0, 0);
+    },
+
     checkAnswers(obj) {
       console.log("start check");
       let isError = false;

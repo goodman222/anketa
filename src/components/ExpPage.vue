@@ -15,6 +15,7 @@ const { currentPage } = defineProps({
 
 const formDataStore = useformDataStore();
 const store = formDataStore.form.exp;
+formDataStore.scrollUp();
 
 formDataStore.setCurrentPage(currentPage);
 

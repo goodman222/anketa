@@ -13,7 +13,7 @@ const { currentPage } = defineProps({
 
 const formDataStore = useformDataStore();
 const store = formDataStore.form.moreInfo;
-
+formDataStore.scrollUp();
 formDataStore.setCurrentPage(currentPage);
 
 const router = useRouter();
@@ -61,7 +61,7 @@ const router = useRouter();
                 title="Готовы ли Вы работать в других городах?"
                 category="moreInfo"
                 fieldName="otherCity"
-                class="mr-4 md:mr-0 md:mb-5"  
+                class="mr-4 md:mr-0 md:mb-5"
               />
               <AppInput
                 type="text"
@@ -98,7 +98,7 @@ const router = useRouter();
             />
           </fieldset>
           <fieldset class="mt-5">
-            <legend class="font-bold text-xl uppercase mb-8 ">
+            <legend class="font-bold text-xl uppercase mb-8">
               Направляя анкету:
             </legend>
             <AppInput

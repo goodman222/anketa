@@ -16,6 +16,8 @@ const formDataStore = useformDataStore();
 const store = formDataStore.form.education;
 formDataStore.setCurrentPage(currentPage);
 
+formDataStore.scrollUp();
+
 const router = useRouter();
 
 const basicObjectTemplate = {
@@ -52,7 +54,6 @@ const additionalObjectTemplate = {
             v-for="(item, index) in store.basic"
             :key="item.id"
             :index="index"
-            
           ></Education>
           <AppButton
             @click.stop.prevent="
@@ -64,7 +65,7 @@ const additionalObjectTemplate = {
           >
         </fieldset>
         <fieldset>
-          <legend class="font-bold text-xl uppercase mb-8 ">
+          <legend class="font-bold text-xl uppercase mb-8">
             Дополнительное образование (курсы, переподготовки)
           </legend>
           <Education

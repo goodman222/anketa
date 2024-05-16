@@ -14,6 +14,7 @@ const { currentPage } = defineProps({
 
 const formDataStore = useformDataStore();
 const store = formDataStore.form.family;
+formDataStore.scrollUp();
 
 formDataStore.setCurrentPage(currentPage);
 
@@ -79,7 +80,7 @@ const relativeArrayTemplate = {
             title="Пребывание за границей (страна, срок, цель)"
             category="family"
             fieldName="abroad"
-            class="mb-5 "
+            class="mb-5"
           />
 
           <AppInput

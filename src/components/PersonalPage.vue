@@ -15,6 +15,7 @@ console.log(currentPage);
 const formDataStore = useformDataStore();
 const store = formDataStore.form.start;
 formDataStore.setCurrentPage(currentPage);
+formDataStore.scrollUp();
 
 const router = useRouter();
 </script>

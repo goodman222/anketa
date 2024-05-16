@@ -16,13 +16,17 @@ import AppButton from "./AppButton.vue";
     </p>
     <div class="flex flex-row mt-12 l:flex-col">
       <a href="https://www.sibserv.com/">
-        <AppButton color="orange mr-4">На гланый сайт</AppButton>
+        <AppButton color="orange mr-4">На главный сайт</AppButton>
       </a>
-      <a href="https://vk.com/sibservcom" class="block h-11 mr-4 l:mt-3"
-        ><img src="../img/vk.png" alt=""
+      <a
+        href="https://vk.com/sibservcom"
+        class="flex justify-center items-center h-12 w-12 rounded-full bg-orange mr-4 l:mt-3"
+        ><img class="h-8 w-8" src="../img/vk.png" alt=""
       /></a>
-      <a href="https://t.me/sibservofficial" class="block h-11 l:mt-3"
-        ><img src="../img/tg.png" alt=""
+      <a
+        href="https://t.me/sibservofficial"
+        class="flex justify-center items-center h-12 w-12 rounded-full bg-orange l:mt-3"
+        ><img src="../img/tg.png" alt="" class="h-6 w-6 object-fill"
       /></a>
     </div>
   </div>
